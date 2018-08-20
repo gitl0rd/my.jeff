@@ -1,11 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class LogInScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Log In',
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text>Log in.</Text>
+        <Text>Log in</Text>
+        <Button onPress={() => this.props.navigation.navigate('Home')} title="CLICK MEEEEEEEE!!!!!!!!!!!"/>
       </View>
     );
   }
