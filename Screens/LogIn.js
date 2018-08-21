@@ -9,7 +9,7 @@ export default class LogInScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Log in</Text>
-        <Button onPress={() => this.props.navigation.navigate('Home')} title="CLICK MEEEEEEEE!!!!!!!!!!!"/>
+        <Button onPress={() => this.props.navigation.navigate('Movies')} title="CLICK MEEEEEEEE!!!!!!!!!!!"/>
       </View>
     );
   }
