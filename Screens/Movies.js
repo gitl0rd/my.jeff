@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import axios from 'axios';
-import Card from '.././Components/Card'
+import Card from '../Components/Card'
+import CardSection from '../Components/CardSecction'
 
 export default class MovieScreen extends React.Component {  
   static navigationOptions = {
@@ -43,9 +44,16 @@ class MovieList extends React.Component {
 class MovieCard extends React.Component {
   render() {
     return(
-      <Card>
-        <Text>{this.props.data.original_title}</Text>
-        <Image source={{uri: "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + this.props.data.poster_path}} />
+      <Card style={{width: 150, height: 200}}>
+        <CardSection>
+          <View style={styles.creditDetail}>
+            <Text style={{fontWeight: 'bold'}}>{this.props.data.original_title}</Text>
+            <Text>{this.props.data.character}</Text>
+          </View>
+        </CardSection>
+        <CardSection>
+          <Image style={styles.image} source={{uri: "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + this.props.data.poster_path}} />
+        </CardSection>
       </Card>
     );
   }
@@ -58,4 +66,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  scrolly: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    flex: 1,
+  },
+  creditDetail: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  image: {
+    alignSelf: 'stretch', 
+    width: 120, 
+    height: 180
+  }
 });
